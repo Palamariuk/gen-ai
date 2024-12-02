@@ -1,5 +1,6 @@
 from torch import nn
 
+
 class Generator(nn.Module):
     def __init__(self, num_channels=3, latent_dim=100, base_channels=64):
         super(Generator, self).__init__()
