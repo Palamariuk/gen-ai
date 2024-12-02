@@ -28,8 +28,9 @@ class Trainer:
 
     def train(self, num_epochs, save_best=True, monitor_metric="loss"):
         for epoch in range(num_epochs):
-            print(f"Epoch {self.model.current_epoch}:")
             self.model.current_epoch = self.total_epochs
+
+            print(f"Epoch {self.model.current_epoch}:")
 
             train_metrics = self.train_one_epoch()
             print(f"\tTrain Metrics = {train_metrics}")
