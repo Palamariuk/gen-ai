@@ -20,11 +20,12 @@ class Trainer:
         self.best_metric = float("inf")
         self.best_epoch = -1
 
-        self.writer = SummaryWriter(log_dir=log_dir)
-
         self.train_loader = data_module.train_dataloader()
         self.val_loader = data_module.val_dataloader()
         self.test_loader = data_module.test_dataloader()
+
+        self.writer = SummaryWriter(log_dir=log_dir)
+        # self.writer.add_graph(model)
 
     def train(self, num_epochs, save_best=True, monitor_metric="loss"):
         for epoch in range(num_epochs):
@@ -52,8 +53,7 @@ class Trainer:
             if save_best and val_loss < self.best_metric:
                 self.best_metric = val_loss
                 self.best_epoch = self.model.current_epoch
-                best_model_path = os.path.join(self.checkpoint_dir, f"best_model_epoch_{self.model.current_epoch}.pth")
-                torch.save(self.model.state_dict(), best_model_path)
+                self.save_checkpoint(prefix="best_")
                 print(
                     f"\tBest model saved at epoch {self.model.current_epoch} with {monitor_metric}={self.best_metric:.6f}")
 
@@ -119,3 +119,7 @@ class Trainer:
         metrics_avg = {key: value / num_batches for key, value in metrics_sum.items()}
         print(f"Test Metrics: {metrics_avg}")
         return metrics_avg
+
+    def save_checkpoint(self, prefix=''):
+        best_model_path = os.path.join(self.checkpoint_dir, f"{prefix}model_epoch_{self.model.current_epoch}.pth")
+        torch.save(self.model.state_dict(), best_model_path)

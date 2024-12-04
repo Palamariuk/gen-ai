@@ -1,8 +1,8 @@
 import torch
 import torch.nn.functional as F
-from torch.nn import Module
+from torch import nn
 
-class SSIMLoss(Module):
+class SSIMLoss(nn.Module):
     # Such default parameters to be similar to PIQ implementation
     def __init__(self, window_size: int = 11, sigma: float = 1.5, max_val: float = 1.0):
         super(SSIMLoss, self).__init__()

@@ -1,7 +1,5 @@
-import matplotlib.pyplot as plt
 import torch
 from torch import nn
-import torch.nn.functional as F
 
 
 class VariationalAutoEncoder(nn.Module):
