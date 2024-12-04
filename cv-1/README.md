@@ -16,7 +16,7 @@ CIFAR-10 is a dataset of 60,000 32x32 color images in 10 classes, with 6,000 ima
 - Validation set: 10,000 images
 - Test set: 10,000 images
 
-![CIFAR10](https://www.researchgate.net/publication/360406721/figure/fig4/AS:11431281091609331@1666576966819/Sample-images-of-CIFAR-10-dataset.png)
+![CIFAR10](https://production-media.paperswithcode.com/datasets/4fdf2b82-2bc3-4f97-ba51-400322b228b1.png)
 
 ## Training Pipeline
 The pipeline was designed to:
