@@ -204,6 +204,7 @@ The idea of latent diffusion is to work with lower dimensional image representat
 The UNet has been trained with 40 epochs.
 
 The DDPM generation process takes 5s 677ms to generate 16 images.
+
 ![latent_ddpm](img/latent_ddpm.png)
 
 The DDIM generation process takes 695ms to generate 16 images.
@@ -348,6 +349,7 @@ Latent Rectified flow on 100 steps:
 ![lrflow_100.png](img/lrflow_100.png)
 
 Latent Rectified flow with one Re-Flow on 10 steps:
+
 ![lreflow_10.png](img/lreflow_10.png)
 
 ---
